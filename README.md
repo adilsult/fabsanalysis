@@ -1,8 +1,8 @@
-# FABS — Facial Analysis Beauty System
+# FABS — Facial Analysis 
 
 React + Vite фронтенд с Node.js бэкендом для анализа лица. Использует MediaPipe для детектирования landmarks, OpenAI GPT для инсайтов и FAL.ai для визуализаций. Авторизация и БД — Supabase.
 
-## Стек
+## Подробнее о стеке
 
 | Слой | Технологии |
 |---|---|
@@ -94,7 +94,7 @@ npx vite build   # собирает в dist/
 
 > Используется `npx vite build` вместо `npm run build` — пропускает tsc проверку типов.
 
-## Архитектурные решения
+## О моделях по анализу
 
 - **ProfileAngleCanvas** — рисует MobileSAM-маску и углы из профильных landmarks; fallback на brightness-threshold силуэт при отсутствии landmarks
 - **Sparse array landmarks** — `new Array<NormalizedLandmark>(478)` с дырками (`undefined`), не заполненный нулями
