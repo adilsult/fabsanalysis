@@ -996,7 +996,7 @@ export function analyzeNeck(
 
     const observations = [
       'Профильные ракурсы использованы для прокси-оценки шейно-подбородочного контура',
-      `Прокси-угол subnasale→menton→gonion: ${round(avgAngle, 1)}°`,
+      `Прокси-угол по линии нижней части лица: ${round(avgAngle, 1)}°`,
     ];
     const recommendations: string[] = [];
     if (!isNormal) {
