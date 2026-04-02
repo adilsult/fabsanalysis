@@ -1,0 +1,39 @@
+{
+  "filename": "Screenshot 2026-03-25 at 5.18.27 PM.png",
+  "side": "right",
+  "sex": "male",
+  "gender": "male",
+  "imageWidth": 1300,
+  "imageHeight": 1438,
+  "contourLength": 1074,
+  "auto": {
+    "g": 238,
+    "n": 267,
+    "prn": 418,
+    "cm": 590,
+    "sn": 662,
+    "ls": 769,
+    "pg": 1061
+  },
+  "corrected": {
+    "g": 220,
+    "n": 275,
+    "prn": 418,
+    "cm": 459,
+    "sn": 484,
+    "ls": 564,
+    "pg": 714
+  },
+  "autoConfidences": {
+    "g": 0.8089666268643603,
+    "n": 0.5329543640385909,
+    "prn": 0.7906504360663719,
+    "cm": 0.726087399248368,
+    "sn": 0.9491237358002268,
+    "ls": 0.5966888563440288,
+    "pg": 0.5490062945078775
+  },
+  "overallConfidence": 0.884549591583897,
+  "skipped": false,
+  "timestamp": 1774481301666
+}

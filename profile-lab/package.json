@@ -1,0 +1,21 @@
+{
+  "name": "profile-lab",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"node server.mjs\" \"vite\"",
+    "server": "node server.mjs",
+    "vite": "vite"
+  },
+  "dependencies": {
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^9.0.0",
+    "typescript": "~5.5.3",
+    "vite": "^6.0.0"
+  }
+}
