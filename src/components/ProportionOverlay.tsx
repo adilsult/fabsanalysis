@@ -219,8 +219,8 @@ function drawAnnotations(
     col[p.key] = p.status === 'ideal' ? '#38bdf8' : p.status === 'close' ? '#f59e0b' : '#fb7185';
   });
   const hasActive = !!activeProportionKey;
-  const MUTED = 'rgba(250,204,21,0.28)';
-  const MUTED_REF = 'rgba(250,204,21,0.15)';
+  const MUTED = 'rgba(255,255,255,0.30)';
+  const MUTED_REF = 'rgba(255,255,255,0.15)';
   const C = (key: string, fallback = 'rgba(250,204,21,0.55)') => {
     const base = col[key] ?? fallback;
     if (!hasActive || activeProportionKey === key) return base;
@@ -248,7 +248,7 @@ function drawAnnotations(
     ensureHit(key).segments.push({ a, b });
   };
 
-  const ALPHA_REF = 'rgba(250,204,21,0.42)'; // faint blueprint-like reference lines
+  const ALPHA_REF = 'rgba(255,255,255,0.38)'; // faint reference lines
   const CAP = 6;
   const EPS = 0.001;
   const BASE_STROKE = Math.max(1.9, Math.min(3.0, dw / 175));

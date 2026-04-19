@@ -50,14 +50,14 @@ export interface MeasurementMeta {
 const MEASUREMENT_INFO_RU: Record<string, MeasurementMeta> = {
   // ── Брови ──
   rightArchAngle: {
-    label: 'Угол арки (левая)',
+    label: 'Изгиб брови (левая)',
     description:
-      'Угол изгиба правой брови в градусах, измеренный в точке наивысшего подъёма. Норма: 120–160°. Вычисляется по трём ключевым точкам брови.',
+      'Насколько сильно изогнута левая бровь — чем меньше угол, тем круче арка. Норма: 120–160°.',
   },
   leftArchAngle: {
-    label: 'Угол арки (правая)',
+    label: 'Изгиб брови (правая)',
     description:
-      'Угол изгиба левой брови в градусах. Измеряется аналогично правой. Норма: 120–160°.',
+      'Насколько сильно изогнута правая бровь. Норма: 120–160°.',
   },
   symmetryIndex: {
     label: 'Индекс симметрии',
@@ -83,12 +83,12 @@ const MEASUREMENT_INFO_RU: Record<string, MeasurementMeta> = {
   rightEAR: {
     label: 'Открытость глаза (левый)',
     description:
-      'Eye Aspect Ratio — соотношение вертикального и горизонтального размера глазной щели. Норма: 0.18–0.42. Низкие значения — узкий глаз, высокие — широко открытый.',
+      'Насколько широко открыт глаз: соотношение высоты и ширины глазной щели. Норма: 0.18–0.42. Низкие значения — узкий глаз, высокие — широко открытый.',
   },
   leftEAR: {
     label: 'Открытость глаза (правый)',
     description:
-      'Аналогичный показатель для левого глаза. Сравнение с правым даёт информацию о симметрии. Норма: 0.18–0.42.',
+      'То же измерение для правого глаза. Сравнение с левым показывает симметрию. Норма: 0.18–0.42.',
   },
   interpupillaryDistance: {
     label: 'Межзрачковое расстояние',
@@ -241,105 +241,105 @@ const MEASUREMENT_INFO_RU: Record<string, MeasurementMeta> = {
   noseProjectionRatio: {
     label: 'Проекция носа (профиль)',
     description:
-      'Горизонтальная проекция кончика носа от линии nasion–chin, нормализованная к высоте лица. Измеряется по профильному снимку.',
+      'Насколько кончик носа выступает вперёд относительно вертикальной линии лица. Измеряется по фото в профиль.',
   },
   nasofrontalAngle: {
-    label: 'Носолобный угол (NFA)',
+    label: 'Угол переносицы',
     description:
-      'Угол между глабеллой, насионом и кончиком носа. Идеал: жен. 130–145°, муж. 125–140°. Определяет глубину переносицы.',
+      'Угол перехода от лба к носу. Идеал: жен. 130–145°, муж. 125–140°. Определяет, насколько «чётким» выглядит переход лоб→нос.',
   },
   nasolabialAngle: {
-    label: 'Носогубный угол (NLA)',
+    label: 'Угол кончика носа',
     description:
-      'Угол между колумеллой и верхней губой в точке subnasale. Идеал: жен. 95–115°, муж. 88–105°. Отражает наклон/ротацию кончика носа.',
+      'Угол между основанием носа и верхней губой. Идеал: жен. 95–115°, муж. 88–105°. Показывает, вздёрнут нос или опущен.',
   },
   chinProjectionRatio: {
-    label: 'Проекция подбородка (профиль)',
+    label: 'Выступание подбородка (профиль)',
     description:
-      'Горизонтальное отстояние pogonion от линии nasion–subnasale. Положительные значения — выступающий подбородок.',
+      'Насколько подбородок выступает вперёд относительно вертикальной линии профиля. Положительные значения — выступающий подбородок.',
   },
   gonialAngle: {
-    label: 'Гониальный угол',
+    label: 'Угол челюсти',
     description:
-      'Угол нижней челюсти в области gonion. Норма: 120–135°. Меньший угол — квадратная челюсть, больший — узкое лицо.',
+      'Угол нижней челюсти по бокам. Норма: 120–135°. Меньший угол — квадратная челюсть, больший — узкое лицо.',
   },
   lipProjectionRatio: {
-    label: 'Проекция губ (E-line)',
+    label: 'Выступание губ в профиль',
     description:
-      'Отстояние верхней губы от линии subnasale–pogonion (Ricketts E-line proxy). Положительные = губы выступают.',
+      'Насколько губы выступают вперёд от линии нос–подбородок. Положительные значения = губы выступают вперёд.',
   },
   malarProjectionProxy: {
     label: 'Выступание скул (профиль)',
     description:
-      'Латеральная проекция скуловой области от средней линии, нормализованная к высоте лица. Отражает рельеф скул.',
+      'Насколько скулы выступают в сторону относительно центральной части лица.',
   },
   // ── Мягкотканевые метрики ──
   softTissue_nPrnRatio: {
-    label: 'Носовая проекция (ST)',
+    label: 'Выступание носа',
     description:
-      'Мягкотканевое расстояние nasion→pronasale / nasion→pogonion. Показывает выступание носа в профиль. Ориентировочный показатель.',
+      'Насколько нос выступает вперёд относительно общей высоты профиля лица. Ориентировочный показатель по снимку в профиль.',
   },
   softTissue_noseProtrusion: {
-    label: 'Протрузия носа (ST)',
+    label: 'Выступание кончика носа',
     description:
-      'Горизонтальное отклонение кончика носа от линии n→pg. Положительные значения = нос выступает вперёд.',
+      'Насколько кончик носа выдвинут вперёд от вертикальной линии профиля. Положительные значения = нос выступает.',
   },
   softTissue_nasofrontalAngle: {
-    label: 'Носолобный угол (ST)',
+    label: 'Угол переносицы (профиль)',
     description:
-      'Угол glabella–nasion–pronasale по мягкотканевым ориентирам. Ориентировочный — не заменяет цефалометрический.',
+      'Угол перехода от лба к носу по снимку профиля. Ориентировочный показатель.',
   },
   softTissue_nasolabialAngle: {
-    label: 'Носогубный угол (ST)',
+    label: 'Угол кончика носа (профиль)',
     description:
-      'Угол columella–subnasale–labiale superius. Ориентировочный мягкотканевый показатель.',
+      'Угол между основанием носа и верхней губой по профильному снимку. Ориентировочный показатель.',
   },
   softTissue_cmSnRatio: {
-    label: 'Длина колумеллы (ST)',
+    label: 'Видимая часть основания носа',
     description:
-      'Расстояние columella→subnasale / n→pg. Отражает длину видимой части колумеллы в профиль.',
+      'Длина видимой части между кончиком носа и верхней губой, относительно высоты профиля.',
   },
   softTissue_snLsRatio: {
-    label: 'Высота верхней губы (ST)',
+    label: 'Высота верхней губы',
     description:
-      'Расстояние subnasale→labiale superius / n→pg. Высота верхней губы от основания носа до красной каймы.',
+      'Высота верхней губы от основания носа до края губы, относительно высоты профиля.',
   },
   softTissue_lipProtrusion: {
-    label: 'Протрузия губ (ST)',
+    label: 'Выступание губ',
     description:
-      'Отстояние верхней губы от линии sn→pg. Ориентировочный мягкотканевый показатель проекции губ.',
+      'Насколько губы выдвинуты вперёд относительно линии нос–подбородок. Ориентировочный показатель.',
   },
   softTissue_lsPgRatio: {
-    label: 'Нижнее лицо ls→pg (ST)',
+    label: 'Высота нижней части профиля',
     description:
-      'Расстояние labiale superius→pogonion / n→pg. Высота нижней части профиля.',
+      'Расстояние от верхней губы до подбородка относительно общей высоты профиля.',
   },
   softTissue_gNRatio: {
-    label: 'Глабелла–насион (ST)',
+    label: 'Глубина надбровья',
     description:
-      'Расстояние glabella→nasion / n→pg. Глубина надбровной области. Ориентировочный показатель.',
+      'Насколько глубоко переносица «утоплена» относительно надбровных дуг. Ориентировочный показатель.',
   },
   softTissue_nPgDistance: {
-    label: 'Дистанция n→pg (ST)',
+    label: 'Высота профиля нос–подбородок',
     description:
-      'Расстояние nasion→pogonion (в нормализованных координатах). Используется как базовая единица для soft-tissue метрик.',
+      'Расстояние от переносицы до подбородка. Используется как базовая единица для остальных показателей профиля.',
   },
   softTissue_confidence: {
-    label: 'Общий балл (ST)',
+    label: 'Точность профильного анализа',
     description:
-      'Общий балл мягкотканевого профильного анализа (0–1). Зависит от точности локализации ландмарков на профильном снимке.',
+      'Насколько чётко AI смог распознать ключевые точки на профильном снимке (0–1). Чем выше — тем точнее остальные показатели профиля.',
   },
 };
 
 const MEASUREMENT_INFO_EN: Record<string, MeasurementMeta> = {
-  rightArchAngle: { label: 'Arch Angle (left)', description: 'Angle of the right eyebrow arch in degrees, measured at the highest point. Norm: 120–160°. Calculated from three key brow landmarks.' },
-  leftArchAngle: { label: 'Arch Angle (right)', description: 'Left eyebrow arch angle in degrees. Measured similarly to the right. Norm: 120–160°.' },
+  rightArchAngle: { label: 'Brow Curve (left)', description: 'How curved the left eyebrow is — a lower angle means a sharper arch. Norm: 120–160°.' },
+  leftArchAngle: { label: 'Brow Curve (right)', description: 'How curved the right eyebrow is. Norm: 120–160°.' },
   symmetryIndex: { label: 'Symmetry Index', description: 'Shows left-right symmetry. 1.0 = perfect symmetry. Norm: above 0.85. Calculated as the ratio of side difference to maximum value.' },
   rightLengthProxy: { label: 'Brow Length (left)', description: 'Right eyebrow length relative to face height. Distance from inner to outer edge divided by face height.' },
   leftLengthProxy: { label: 'Brow Length (right)', description: 'Left eyebrow length relative to face height. Same as right side.' },
   browToEyeDistance: { label: 'Brow-Eye Distance', description: 'Vertical gap between brow peak and upper eyelid, normalized to face height. Norm: 0.02–0.09. Low = low brows, high = high brows.' },
-  rightEAR: { label: 'Eye Openness (left)', description: 'Eye Aspect Ratio — vertical/horizontal ratio of the eye opening. Norm: 0.18–0.42. Low = narrow eye, high = wide open.' },
-  leftEAR: { label: 'Eye Openness (right)', description: 'Same metric for the left eye. Comparison with right gives symmetry info. Norm: 0.18–0.42.' },
+  rightEAR: { label: 'Eye Openness (left)', description: 'How wide open the left eye is: height-to-width ratio of the eye opening. Norm: 0.18–0.42. Low = narrow eye, high = wide open.' },
+  leftEAR: { label: 'Eye Openness (right)', description: 'Same measurement for the right eye. Comparing both shows symmetry. Norm: 0.18–0.42.' },
   interpupillaryDistance: { label: 'Interpupillary Distance', description: 'Distance between pupil centers (normalized). Used as a base unit for many facial proportion calculations.' },
   rightWidthRatio: { label: 'Eye Width (left)', description: 'Horizontal size of the right eye opening relative to interpupillary distance.' },
   leftWidthRatio: { label: 'Eye Width (right)', description: 'Horizontal size of the left eye opening relative to interpupillary distance.' },
@@ -368,24 +368,24 @@ const MEASUREMENT_INFO_EN: Record<string, MeasurementMeta> = {
   brightnessVariance: { label: 'Skin Texture', description: 'Brightness variance in the cheek area. Norm: below 500. High values indicate roughness, enlarged pores.' },
   colorUniformity: { label: 'Color Uniformity', description: 'Skin color evenness (0–1). Norm: above 0.7. Based on color channel standard deviation.' },
   submentalContourProxyAngle: { label: 'Chin-Neck Contour', description: 'Cervicomental angle from profile photo. Norm: 95–145°. Lower angle = sharper neck contour.' },
-  noseProjectionRatio: { label: 'Nose Projection (profile)', description: 'Horizontal projection of the nose tip from the nasion–chin line, normalized to face height. Measured from profile photo.' },
-  nasofrontalAngle: { label: 'Nasofrontal Angle (NFA)', description: 'Angle between glabella, nasion, and nose tip. Ideal: female 130–145°, male 125–140°. Determines bridge depth.' },
-  nasolabialAngle: { label: 'Nasolabial Angle (NLA)', description: 'Angle between columella and upper lip at subnasale. Ideal: female 95–115°, male 88–105°. Reflects nose tip tilt/rotation.' },
-  chinProjectionRatio: { label: 'Chin Projection (profile)', description: 'Horizontal distance of pogonion from nasion–subnasale line. Positive values = projecting chin.' },
-  gonialAngle: { label: 'Gonial Angle', description: 'Lower jaw angle at gonion. Norm: 120–135°. Smaller = square jaw, larger = narrow face.' },
-  lipProjectionRatio: { label: 'Lip Projection (E-line)', description: 'Upper lip distance from subnasale–pogonion line (Ricketts E-line proxy). Positive = lips project forward.' },
-  malarProjectionProxy: { label: 'Cheekbone Projection (profile)', description: 'Lateral projection of the malar area from midline, normalized to face height. Reflects cheekbone relief.' },
-  softTissue_nPrnRatio: { label: 'Nasal Projection (ST)', description: 'Soft tissue distance nasion→pronasale / nasion→pogonion. Shows nose projection in profile. Indicative metric.' },
-  softTissue_noseProtrusion: { label: 'Nose Protrusion (ST)', description: 'Horizontal deviation of the nose tip from n→pg line. Positive = nose projects forward.' },
-  softTissue_nasofrontalAngle: { label: 'Nasofrontal Angle (ST)', description: 'Glabella–nasion–pronasale angle from soft tissue landmarks. Indicative — does not replace cephalometric.' },
-  softTissue_nasolabialAngle: { label: 'Nasolabial Angle (ST)', description: 'Columella–subnasale–labiale superius angle. Indicative soft tissue metric.' },
-  softTissue_cmSnRatio: { label: 'Columella Length (ST)', description: 'Columella→subnasale / n→pg distance. Reflects visible columella length in profile.' },
-  softTissue_snLsRatio: { label: 'Upper Lip Height (ST)', description: 'Subnasale→labiale superius / n→pg. Upper lip height from nose base to vermilion border.' },
-  softTissue_lipProtrusion: { label: 'Lip Protrusion (ST)', description: 'Upper lip distance from sn→pg line. Indicative soft tissue lip projection metric.' },
-  softTissue_lsPgRatio: { label: 'Lower Face ls→pg (ST)', description: 'Labiale superius→pogonion / n→pg distance. Lower profile height.' },
-  softTissue_gNRatio: { label: 'Glabella–Nasion (ST)', description: 'Glabella→nasion / n→pg distance. Brow ridge depth. Indicative metric.' },
-  softTissue_nPgDistance: { label: 'Distance n→pg (ST)', description: 'Nasion→pogonion distance (normalized coordinates). Used as base unit for soft-tissue metrics.' },
-  softTissue_confidence: { label: 'Overall Score (ST)', description: 'Overall soft tissue profile analysis score (0–1). Depends on landmark localization accuracy on the profile photo.' },
+  noseProjectionRatio: { label: 'Nose Projection (profile)', description: 'How far the nose tip projects forward relative to the vertical face line. Measured from the profile photo.' },
+  nasofrontalAngle: { label: 'Bridge Angle', description: 'Angle of the transition from forehead to nose. Ideal: female 130–145°, male 125–140°. Determines how defined the brow-to-nose transition looks.' },
+  nasolabialAngle: { label: 'Nose Tip Angle', description: 'Angle between the base of the nose and upper lip. Ideal: female 95–115°, male 88–105°. Shows whether the nose tip points up or down.' },
+  chinProjectionRatio: { label: 'Chin Projection (profile)', description: 'How much the chin sticks out relative to the vertical profile line. Positive = projecting chin.' },
+  gonialAngle: { label: 'Jaw Angle', description: 'The angle of the lower jaw at each side. Norm: 120–135°. Smaller = square jaw, larger = narrower face.' },
+  lipProjectionRatio: { label: 'Lip Projection (profile)', description: 'How much the lips stick out from the nose-to-chin line. Positive = lips project forward.' },
+  malarProjectionProxy: { label: 'Cheekbone Projection (profile)', description: 'How much the cheekbones protrude sideways relative to the center of the face.' },
+  softTissue_nPrnRatio: { label: 'Nose Projection', description: 'How much the nose projects relative to the overall profile height. Indicative reading from profile photo.' },
+  softTissue_noseProtrusion: { label: 'Nose Tip Protrusion', description: 'How far the nose tip sticks out from the vertical profile line. Positive = nose projects forward.' },
+  softTissue_nasofrontalAngle: { label: 'Bridge Angle (profile)', description: 'Angle of the forehead-to-nose transition from the profile photo. Indicative measurement.' },
+  softTissue_nasolabialAngle: { label: 'Nose Tip Angle (profile)', description: 'Angle between the base of the nose and upper lip from the profile photo. Indicative measurement.' },
+  softTissue_cmSnRatio: { label: 'Visible Nose Base Length', description: 'Length of the visible portion between nose tip and upper lip, relative to overall profile height.' },
+  softTissue_snLsRatio: { label: 'Upper Lip Height', description: 'Height of the upper lip from the nose base to the lip edge, relative to profile height.' },
+  softTissue_lipProtrusion: { label: 'Lip Protrusion (profile)', description: 'How much the lips protrude from the nose-to-chin line. Indicative measurement.' },
+  softTissue_lsPgRatio: { label: 'Lower Profile Height', description: 'Distance from the upper lip to the chin relative to the overall profile height.' },
+  softTissue_gNRatio: { label: 'Brow Ridge Depth', description: 'How deep the bridge of the nose sits relative to the brow ridges. Indicative measurement.' },
+  softTissue_nPgDistance: { label: 'Profile Height (nose to chin)', description: 'Distance from the nose bridge to the chin. Used as a base unit for all other profile measurements.' },
+  softTissue_confidence: { label: 'Profile Analysis Accuracy', description: 'How clearly AI detected key points on the profile photo (0–1). Higher = more reliable profile measurements.' },
 };
 
 const MEASUREMENT_INFO: Record<Lang, Record<string, MeasurementMeta>> = {

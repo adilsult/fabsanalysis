@@ -749,22 +749,6 @@ export default function FeatureCard({
               </h4>
               <p className="text-[11px] text-gray-400 mb-2">{t('featureCard.proportionsDesc')}</p>
 
-              {/* Face proportion overlay — zoomed region with annotation lines */}
-              {frontImageDataUrl && landmarks && landmarks.length > 0 && (
-                <div className="mb-3">
-                  <ProportionOverlay
-                    imageDataUrl={frontImageDataUrl}
-                    landmarks={landmarks}
-                    featureName={feature.name}
-                    proportions={proportions.items}
-                    activeProportionKey={activeProportionKey}
-                  />
-                  <p className="mt-1 text-[9px] text-gray-400 text-center">
-                    {t('featureCard.proportionHint')}
-                  </p>
-                </div>
-              )}
-
               {/* Profile angle visualization — Nose card only */}
               {feature.name === 'Nose' && (() => {
                 const leftLm = profileLandmarks?.left ?? null;
@@ -905,19 +889,57 @@ export default function FeatureCard({
                 );
               })()}
 
-              <div className="space-y-3 -mx-1 sm:-mx-1.5">
+              {/* Color legend — shown once above all proportion photos */}
+              {frontImageDataUrl && landmarks && landmarks.length > 0 && (
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-3 px-0.5">
+                  <span className="text-[10px] text-gray-400 shrink-0">{t('overlay.legend.title')}</span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-gray-600">
+                    <span className="w-3.5 h-1.5 rounded-full bg-sky-400 inline-block flex-shrink-0" />
+                    {t('overlay.legend.ideal')}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-gray-600">
+                    <span className="w-3.5 h-1.5 rounded-full bg-amber-400 inline-block flex-shrink-0" />
+                    {t('overlay.legend.close')}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-gray-600">
+                    <span className="w-3.5 h-1.5 rounded-full bg-rose-400 inline-block flex-shrink-0" />
+                    {t('overlay.legend.deviation')}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-gray-600">
+                    <span className="w-3.5 h-1.5 rounded-full bg-white border border-gray-300 inline-block flex-shrink-0" />
+                    {t('overlay.legend.inactive')}
+                  </span>
+                </div>
+              )}
+
+              <div className="space-y-4 -mx-1 sm:-mx-1.5">
                 {proportions.items.map((item) => (
-                  <ProportionBar
-                    key={item.key}
-                    item={item}
-                    expanded={activeProportionKey === item.key}
-                    onExpandedChange={(isExpanded) => {
-                      setActiveProportionKey((current) => {
-                        if (isExpanded) return item.key;
-                        return current === item.key ? null : current;
-                      });
-                    }}
-                  />
+                  <div key={item.key}>
+                    <ProportionBar
+                      item={item}
+                      expanded={activeProportionKey === item.key}
+                      onExpandedChange={(isExpanded) => {
+                        setActiveProportionKey((current) => {
+                          if (isExpanded) return item.key;
+                          return current === item.key ? null : current;
+                        });
+                      }}
+                    />
+                    {frontImageDataUrl && landmarks && landmarks.length > 0 && (
+                      <div className="mt-2">
+                        <ProportionOverlay
+                          imageDataUrl={frontImageDataUrl}
+                          landmarks={landmarks}
+                          featureName={feature.name}
+                          proportions={proportions.items}
+                          activeProportionKey={item.key}
+                        />
+                        <p className="mt-1 text-[9px] text-gray-400 text-center">
+                          {t('featureCard.proportionHint')}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
               {proportions.note && (
@@ -945,6 +967,21 @@ export default function FeatureCard({
           <div className="mt-4">
             <h4 className="text-sm font-medium text-gray-700 mb-1">{t('featureCard.observations')}</h4>
             <p className="text-[11px] text-gray-400 mb-2">{t('featureCard.observationsDesc')}</p>
+
+            {/* Photo showing the full feature region in context */}
+            {frontImageDataUrl && landmarks && landmarks.length > 0 && (
+              <div className="mb-3">
+                <ProportionOverlay
+                  imageDataUrl={frontImageDataUrl}
+                  landmarks={landmarks}
+                  featureName={feature.name}
+                  proportions={proportions?.items ?? []}
+                  activeProportionKey={null}
+                />
+                <p className="mt-1 text-[9px] text-gray-400 text-center">{t('featureCard.proportionHint')}</p>
+              </div>
+            )}
+
             <div className="hidden sm:flex gap-2">
               <div className="flex-1 flex flex-col gap-2">
                 {sanitizedObservations.filter((_, i) => i % 2 === 0).map((obs, i) => {
@@ -1009,6 +1046,21 @@ export default function FeatureCard({
                   {t('featureCard.lowProfileAccuracy')}
                 </p>
               )}
+
+              {/* Photo showing the feature region for visual context */}
+              {frontImageDataUrl && landmarks && landmarks.length > 0 && (
+                <div className="mb-3">
+                  <ProportionOverlay
+                    imageDataUrl={frontImageDataUrl}
+                    landmarks={landmarks}
+                    featureName={feature.name}
+                    proportions={proportions?.items ?? []}
+                    activeProportionKey={null}
+                  />
+                  <p className="mt-1 text-[9px] text-gray-400 text-center">{t('featureCard.proportionHint')}</p>
+                </div>
+              )}
+
               <div className="hidden sm:flex gap-2">
                 <div className="flex-1 flex flex-col gap-2">
                   {additionalMeasurements.filter((_, i) => i % 2 === 0).map(([key, value]) => (

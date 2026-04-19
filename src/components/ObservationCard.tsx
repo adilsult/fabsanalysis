@@ -11,10 +11,10 @@ interface Props {
 }
 
 const DESCRIPTION_RU =
-  'Наблюдение сформировано на основе геометрического анализа лицевых ориентиров MediaPipe. Результат отражает текущее соотношение измеренных параметров и может варьироваться в зависимости от угла съёмки, освещения и мимики.';
+  'Это вывод на основе замеров, которые система сделала по вашей фотографии. Результат зависит от угла съёмки, освещения и выражения лица — воспринимайте его как ориентир, а не точный диагноз.';
 
 const DESCRIPTION_EN =
-  'This observation is derived from geometric analysis of facial landmarks via MediaPipe. The result reflects the current ratio of measured parameters and may vary depending on shooting angle, lighting, and facial expression.';
+  'This is a finding based on measurements taken from your photo. Results can vary with shooting angle, lighting, and facial expression — treat it as a reference point, not an exact diagnosis.';
 
 export default function ObservationCard({ text, expanded: controlledExpanded, onExpandedChange }: Props) {
   const t = useT();
